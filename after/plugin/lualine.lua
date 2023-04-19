@@ -14,5 +14,4 @@ local config = {
       lualine_z = {'location'}
     },
 }
-
 require'lualine'.setup(config)
