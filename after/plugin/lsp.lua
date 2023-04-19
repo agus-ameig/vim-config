@@ -8,7 +8,7 @@ lsp.nvim_workspace()
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
-lsp.on_attach( function(_, bufnr)
+lsp.on_attach( function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -52,9 +52,60 @@ lsp.on_attach( function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  -- Attach nvim-navic to the LSP buffer
+  if client.server_capabilities.documentSymbolProvider then
+    require('nvim-navic').attach(client, bufnr)
+  end
 end)
 
 lsp.setup()
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+--require'nvim-navic'.setup()
 vim.diagnostic.config({
   virtual_text = true
+})
+
+require'copilot'.setup({
+  suggestion = {enabled = false},
+  panel = {enabled = false},
+  filetypes = {
+    html = false,
+  }
+})
+require'copilot_cmp'.setup()
+
+local cmp = require("cmp")
+cmp.setup({
+  sources = {
+    {name = 'path', group_index = 1},
+    {name = 'copilot', group_index = 1},
+    {name = 'nvim_lsp', group_index = 1},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2}
+  },
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false
+    })
+  },
+  formatting = {
+    fields = {'menu','abbr', 'kind'},
+    format = require('lspkind').cmp_format({
+      maxwidth = 50,
+      ellipsis_char = '...',
+      before = function (entry, vim_item)
+        local menu_icon =  {
+          nvim_lsp = 'λ',
+          luasnip = '⋗',
+          buffer = '',
+          path = '',
+          nvim_lua = '',
+        }
+        vim_item.menu = menu_icon[entry.source.name]
+        return vim_item
+      end
+    })
+  }
 })
