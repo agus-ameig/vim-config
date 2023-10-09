@@ -1,1 +1,2 @@
-require("agus")
+require("agus.core")
+require("agus.lazy")
