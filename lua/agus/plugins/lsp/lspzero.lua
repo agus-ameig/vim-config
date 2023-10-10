@@ -18,7 +18,7 @@ local function lspzero_config()
 		-- for LSP related items. It sets the mode, buffer and description for us each time.
 		local nmap = function(keys, func, desc)
 			if desc then
-				desc = "LSP: " .. desc
+				desc = "nSP: " .. desc
 			end
 
 			vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
