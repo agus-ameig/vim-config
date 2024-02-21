@@ -1,4 +1,4 @@
-function color_my_pencils(color)
+local function color_my_pencils(color)
 	color = color or 'catppuccin'
 	vim.cmd.colorscheme(color)
 
@@ -6,12 +6,12 @@ function color_my_pencils(color)
 	vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 end
 
-return { 
- "catppuccin/nvim", 
-  name = "catppuccin", 
+return {
+ "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
-  config = function() 
-	  color_my_pencils()
+  config = function()
+    color_my_pencils("catppuccin")
 	end
 }
 
