@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 vim.opt.guicursor = ""
 -- Set highlight on search
 vim.o.hlsearch = true
