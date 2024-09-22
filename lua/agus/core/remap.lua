@@ -35,11 +35,11 @@ vim.keymap.set("n", "<leader>ng", function()
   local base = file:sub(1, #file - #ext - 1)
 
   local extensions = {'.ts', '.html', '.scss'}
-  local current_index = vim.fn.index(extensions, '.'...ext)
+  local current_index = vim.fn.index(extensions, '.'..ext)
   local next_ext = extensions[current_index % #extensions + 1]
 
   local next_file = base..next_ext
   vim.cmd('edit '.. next_file)
-end, {norempa = true, silent = true})
+end, {noremap = true, silent = true})
 
 

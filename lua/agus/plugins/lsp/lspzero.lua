@@ -67,7 +67,7 @@ local function lspzero_config()
 	end)
 	lsp.setup()
 	require("agus.plugins.lsp.navic").config_navic()
-	require("agus.plugins.lsp.copilot").config_copilot()
+	-- require("agus.plugins.lsp.copilot").config_copilot()
 	require("agus.plugins.lsp.cmp").config_cmp()
 	require("agus.plugins.lsp.lspconfig").config_lsp_config()
 end
@@ -94,8 +94,8 @@ return {
 
 		-- Extras
 		{ "onsails/lspkind.nvim" },
-		{ "zbirenbaum/copilot.lua" },
-		{ "zbirenbaum/copilot-cmp" },
+--		{ "zbirenbaum/copilot.lua" },
+--		{ "zbirenbaum/copilot-cmp" },
 		{ "SmiteshP/nvim-navic" },
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "arkav/lualine-lsp-progress" },

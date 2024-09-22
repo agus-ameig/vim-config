@@ -9,6 +9,6 @@ local function config_copilot()
   require("copilot_cmp").setup()
 end
 
-return {
-  config_copilot = config_copilot
-}
+-- return {
+--  config_copilot = config_copilot
+-- }
