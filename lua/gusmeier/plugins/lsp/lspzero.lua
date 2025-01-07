@@ -66,10 +66,10 @@ local function lspzero_config()
 		end
 	end)
 	lsp.setup()
-	require("agus.plugins.lsp.navic").config_navic()
-	require("agus.plugins.lsp.copilot").config_copilot()
-	require("agus.plugins.lsp.cmp").config_cmp()
-	require("agus.plugins.lsp.lspconfig").config_lsp_config()
+	require("gusmeier.plugins.lsp.navic").config_navic()
+	require("gusmeier.plugins.lsp.copilot").config_copilot()
+	require("gusmeier.plugins.lsp.cmp").config_cmp()
+	require("gusmeier.plugins.lsp.lspconfig").config_lsp_config()
 end
 return {
 	"VonHeikemen/lsp-zero.nvim",

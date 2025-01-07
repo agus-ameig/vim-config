@@ -13,6 +13,6 @@ return {
       },
       hijack_netrw_behavior = "open_current",
     })
-    vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree)
+    vim.keymap.set("n", "<leader>pv", vim.cmd.Neotree, { desc = "Open Neotree"})
   end,
 }

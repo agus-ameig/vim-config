@@ -1,5 +1,5 @@
-require("agus.core.set")
-require("agus.core.remap")
+require("gusmeier.core.set")
+require("gusmeier.core.remap")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd

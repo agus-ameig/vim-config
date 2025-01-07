@@ -1,2 +1,2 @@
-require("agus.core")
-require("agus.lazy")
+require("gusmeier.core")
+require("gusmeier.lazy")

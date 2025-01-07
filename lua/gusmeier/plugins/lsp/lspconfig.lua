@@ -7,7 +7,7 @@ local function organize_imports()
 end
 
 local function config_lsp_config()
-  require("lspconfig").tsserver.setup({
+  require("lspconfig").ts_ls.setup({
     commands = {
       OrganizeImports = {
         organize_imports,

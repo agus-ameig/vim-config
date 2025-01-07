@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "agus.plugins" },
-	{ import = "agus.plugins.lsp.lspzero" },
-	{ import = "agus.plugins.lsp.nullls" },
+	{ import = "gusmeier.plugins" },
+	{ import = "gusmeier.plugins.lsp.lspzero" },
+	{ import = "gusmeier.plugins.lsp.nullls" },
 })
